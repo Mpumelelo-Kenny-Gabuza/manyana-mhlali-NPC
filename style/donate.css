@@ -1,0 +1,351 @@
+/* STYLES FOR DONATE PAGE ONLY */
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #2196F3;
+    --accent-color: #FF6B6B;
+    --text-dark: #333;
+    --text-light: #666;
+    --background-light: #f8f9fa;
+}
+
+.hero-section {
+    height: 35vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/DonatePic.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-section h1 {
+    padding-top: 3rem;
+    font-size: 2.5rem;
+    opacity: 0.9;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #fff;
+    font-weight: bold;
+}
+
+.donation-options {
+    padding: 0 10px;
+}
+
+.donate-title {
+    text-align: center;
+}
+
+.donate-subtitle {
+    text-align: center;
+}
+
+
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.donation-card {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.donation-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.donation-card h3 {
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.platform-logo {
+    height: 50px;
+    margin: 20px 0;
+    object-fit: contain;
+}
+
+.bank-details {
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.btn-donate {
+    padding: .6rem 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-top: 1rem;
+}
+
+.btn-donate:hover {
+    transform: translateY(-2px);
+}
+
+#bottom-impact {
+    font-size: 1.2rem;
+}
+
+/* QR Code Button */
+.view-qr-btn {
+    border: none;
+    padding: .6rem 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+    box-shadow: 0 4px 12px rgba(30, 74, 123, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.view-qr-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.view-qr-btn:hover::before {
+    left: 100%;
+}
+
+.view-qr-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(30, 74, 123, 0.4);
+}
+
+/* QR Code Popup - Blurred Background */
+.qr-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Popup Content */
+.qr-popup-content {
+    max-height: 80vh;
+    background: snow;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    animation: slideUp 0.4s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    /* background: var(--primary-red); */
+    color: grey;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 100;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    background: #e0978f;
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* Title */
+.qr-title {
+    text-align: center;
+    padding: 1rem 2rem 1rem;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue) 100%);
+    color: rgb(56, 55, 55);
+}
+
+.qr-title h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.qr-subtitle {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+/* QR Code Image */
+.qr-image-container {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+
+.qr-code-image {
+    width: 220px;
+    height: 220px;
+    border: 12px solid white;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 8px 30px rgba(30, 74, 123, 0.2);
+    }
+}
+
+/* Note */
+.qr-note {
+    padding: 1rem 2rem 2rem;
+    text-align: center;
+    border-top: 1px solid var(--border-light);
+    background: #f8fafc;
+}
+
+.qr-note p {
+    margin: 0;
+    color: var(--secondary-green);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .qr-popup-content {
+        width: 95%;
+        max-width: 350px;
+    }
+
+    .qr-title {
+        padding: 1.5rem 1.5rem 1rem;
+    }
+
+    .qr-title h2 {
+        font-size: 1.4rem;
+    }
+
+    .qr-image-container {
+        padding: 1.5rem;
+    }
+
+    .qr-code-image {
+        width: 200px;
+        height: 200px;
+        border-width: 10px;
+    }
+
+    .close-btn {
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .qr-popup-content {
+        width: 90%;
+        max-width: 320px;
+    }
+
+    .qr-code-image {
+        width: 180px;
+        height: 180px;
+    }
+
+    .view-qr-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+}
+
+.bank-details {
+    font-size: .88rem;
+    color: var(--secondary-gray);
+    margin-top: 0.5rem;
+    font-family: monospace;
+    background: #f0f7ff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    display: inline-block;
+}

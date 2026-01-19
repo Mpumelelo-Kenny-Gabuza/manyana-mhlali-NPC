@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f35d4106a4.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/base_style.css">
+    <title> Manyana Mhlali Development NGO </title>
+</head>
+
+<body>
+    <!-- NAVBAR SECTION -->
+    <div class="navbar_section">
+        <div class="navbar_container">
+            <div class="navbar_logo">
+                <div class="navbar_text"><a href="index.html"></a>MMD</div>
+            </div>
+
+            <div class="navbar_socials">
+                <a href="" class="social_icon"><i class=""></i></a>
+                <a href="https://www.facebook.com/people/Manyana-Mhlali-Development/61584026785887/?mibextid=wwXIfr&rdid=rJ1m4Hq12n970lbM&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1HiZtggc9Z%2F%3Fmibextid%3DwwXIfr"
+                    target="_blank" rel="noopener noreferrer" class="social_icon"><i
+                        class="fa fa-facebook-square"></i></a>
+                <a href="https://www.instagram.com/manyana_mhlali/?igsh=Y29ub2h5d2phZDJx&utm_source=qr#" target="_blank"
+                    rel="noopener noreferrer" class="social_icon"><i class="fa fa-instagram"></i></a>
+                <a href="" class="social_icon"><i class="fa fa-linkedin-square"></i></a>
+                <a href="tel:+2776 593 5001" class="navbar_contact">076 593 5001</a>
+            </div>
+
+            <!-- HAMBURGER MENU -->
+            <div class="navbar_toggle" id="mobile-menu">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+
+        <div class="navbar_links" id="navbar-links">
+            <ul class="nav_menu">
+                <li><a href="index.html" class="nav_link" style="color: #c0392b;">Home</a></li>
+                <li><a href="about_us.html" class="nav_link">About Us</a></li>
+                <!-- Programmes Dropdown -->
+                <li class="nav_dropdown">
+                    <a href="" class="nav_link dropdown_toggle">Programmes <span>&#9662;</span></a>
+                    <ul class="dropdown_menu">
+                        <li><a href="./programmes/gender_based_violence.html">Gender Based Violence</a></li>
+                        <li><a href="./programmes/sustainable_livelyhoods.html">Sustainable Livelihoods</a></li>
+                        <li><a href="./programmes/male_circumsition.html">Male Circumsition</a></li>
+                        <li><a href="./programmes/mental_health.html">Mental Health</a></li>
+                    </ul>
+                </li>
+                <li><a href="prospective_partner.html" class="nav_link">Partnership</a></li>
+                <li><a href="volunteer.html" class="nav_link">Volunteering</a></li>
+            </ul>
+
+            <div class="navbar_buttons">
+                <button class="nav_btn help_btn"><a href="contact.html">CONTACT</a></button>
+                <button class="nav_btn donate_btn"><a href="donate.html"><i
+                            class="fa-solid fa-heart"></i>&nbsp;&nbsp;DONATE</a></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero_section">
+        <div class="hero_content">
+            <div class="organization_name">MANYANA MHLALI DEVELOPMENT</div>
+            <div class="hero_heading">Building a Social Cohesive Community</div>
+            <div class="hero_subheading">Striving to deal with traditional, social, health and economic challenges
+                through respect, solidarity and caring for one another.</div>
+
+            <div class="hero_buttons">
+                <button class="btn btn-primary"><a href="donate.html" class="donate-button cta-button">DONATE
+                        TODAY</a></button>
+                <button class="btn btn-secondary"><a href="#programmes">GET HELP</a></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Donation Modal -->
+    <div id="donationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-header">
+                <h2>Thank You for Your Generosity! 💝</h2>
+            </div>
+            <div class="modal-body">
+                <p>Your support enables us to continue our vital work in:</p>
+                <ul>
+                    <li>🚫 Gender-Based Violence Prevention</li>
+                    <li>🧠 Mental Health Awareness</li>
+                    <li>⚕️ Safe Male Circumcision Programmes</li>
+                    <li>💼 Sustainable Livelihoods</li>
+                </ul>
+                <p>You will now be redirected to our secure donation page.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelBtn" class="btn-secondary">Cancel</button>
+                <button id="proceedBtn" class="btn-primary">Proceed to Donate</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OUR MISSION SECTION -->
+    <section class="mission_section">
+        <h1>Our Mission</h1>
+        <p>To be a social enterprise that strives to live the values, principles, and practices of good governance and
+            human rights. We are committed to building a community that tackles its own traditional, social, health, and
+            economic challenges.</p>
+
+        <div class="objectives_grid">
+            <div class="objective_item">
+                <h3>Eliminate Violence</h3>
+                <p>To eliminate violence through Community Safety and Security,
+                <ul style="list-style: none;">
+                    <li>Community Policing training and formation</li>
+                    <li>Community custody holding cells</li>
+                    <li>Rural schools development support</li>
+                </ul>
+                </p>
+            </div>
+
+            <div class="objective_item">
+                <h3>Enhance Quality of Life</h3>
+                <p>To enhance the quality of life for women, children and vulnerable groups through mental health
+                    programmes</p>
+            </div>
+
+            <div class="objective_item">
+                <h3>Strengthen Rite of Passage</h3>
+                <p>To strengthen the rite of passage through safe initiation processes</p>
+            </div>
+
+            <div class="objective_item">
+                <h3>Address Economic Factors</h3>
+                <p>To address economic factors through sustainable livelihood programmes</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="programmes"></div>
+    <!-- PROGRAMMES SECTION -->
+
+    <div class="programmes_section" id="programmes">
+        <h1 class="programmes_heading">PROGRAMMES WE OFFER SUPPORT FOR </h1>
+        <h3 class="programmes_subheading">browse through our programmes and get help for yourself or a loved ones</h3>
+        <p style="padding-bottom: 18px; text-align: center; color:rgb(170, 168, 166);">Click on a programme to learn
+            more about it</p>
+
+        <div class="programmes_grid">
+            <div class="program_card gbv_programme">
+                <div class="program_img gbv_image"></div>
+                <div class="programme_content">
+                    <h3 class="program_name">🚫 Gender-Based Violence (GBV) Prevention</h3>
+                    <p class="programme_description">We work to eliminate violence by increasing public accountability,
+                        strengthening social mechanisms, and implementing evidence-based prevention and advocacy
+                        strategies to ensure safety and justice for all.</p>
+                </div>
+            </div>
+
+            <div class="program_card mental_health_programme">
+                <div class="program_img mental_health_image"></div>
+                <div class="programme_content">
+                    <h3 class="program_name">🧠 Mental Health Awareness</h3>
+                    <p class="programme_description">Dedicated to enhancing the quality of life for women, children, and
+                        vulnerable groups through mental health awareness campaigns and support strategies.</p>
+                </div>
+            </div>
+
+            <div class="program_card circumcision_programme">
+                <div class="program_img circumcision_image "></div>
+                <div class="programme_content">
+                    <h3 class="program_name">⚕️ Safe Male Circumcision</h3>
+                    <p class="programme_description">We conduct programmes to support safe male circumcision,
+                        strengthening the rite of passage through medically sound and culturally respectful processes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="program_card livelihoods_programme">
+                <div class="program_img livelihoods_image"></div>
+                <div class="programme_content">
+                    <h3 class="program_name">💼 Sustainable Livelihoods</h3>
+                    <p class="programme_description">Focused on poverty relief by creating sustainable employment
+                        opportunities and encouraging self-employment through entrepreneurial skills development.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SURVIVOR-STORY SECTION -->
+    <!-- <section class="survivor-story">
+        <div class="survivor-container">
+            <div class="survivor-img">
+                <img src="https://cdn.monkplatform.com/image/czoxOTI6Imh0dHBzJTNBJTJGJTJGNWI0YWJhMGZiMGYzNGFhNGRmMzMtNDk1MmQ5MDY3OTAwMzYzYzUwMThiN2E3YmY0OTE2MGYuc3NsLmNmMi5yYWNrY2RuLmNvbSUyRnVwbG9hZGVkJTJGbCUyRjBlNjc3MTYwNV8xNTExNjE2MjUzX2xpdmluZy1mcm9tLXZpY3RvcnktdXBkLmpwZyUzRnMlM0Q3Mzg3OGVkMWM3ZTFhYjNjZmVmYjExZmEzMDY3Njg0YSI7/living-from-victory-upd.jpg"
+                    alt="A Happy Survivor">
+            </div>
+            <div class="story-container">
+                <h1 class="story-heading">Survivor Story</h1>
+                <p class="survivor-paragraph">I lost my voice to fear, trapped in my own home for years. The silence was
+                    deafening. Reaching out to MMD's support group was the hardest step I ever took, but it was my first
+                    step
+                    toward freedom. They provided a safe space where I was heard without judgment and given the tools to
+                    rebuild my
+                    life. Today, I stand tall, my future is my own, and my voice, once silenced, now speaks with
+                    strength and hope.</p>
+                <a href="contact.html" class="survivor-btn">Be a Survivor</a>
+            </div>
+        </div>
+    </section> -->
+    <section class="survivor-story">
+        <div class="container">
+            <div class="story-grid">
+                <!-- Image Column -->
+                <div class="story-image">
+                    <img width="450" src="https://cdn.monkplatform.com/image/czoxOTI6Imh0dHBzJTNBJTJGJTJGNWI0YWJhMGZiMGYzNGFhNGRmMzMtNDk1MmQ5MDY3OTAwMzYzYzUwMThiN2E3YmY0OTE2MGYuc3NsLmNmMi5yYWNrY2RuLmNvbSUyRnVwbG9hZGVkJTJGbCUyRjBlNjc3MTYwNV8xNTExNjE2MjUzX2xpdmluZy1mcm9tLXZpY3RvcnktdXBkLmpwZyUzRnMlM0Q3Mzg3OGVkMWM3ZTFhYjNjZmVmYjExZmEzMDY3Njg0YSI7/living-from-victory-upd.jpg"
+                    alt="A Happy Survivor">
+                </div>
+
+                <!-- Content Column -->
+                <div class="story-content">
+                    <h2 class="story-title">Survivor Story</h2>
+                    <div class="story-text">
+                        <p class="story-quote">"I lost my voice to fear, trapped in my own home for years. The silence
+                            was deafening."</p>
+                        <p>"Reaching out to MMD's support group was the hardest step I ever took, but it was my first
+                            step toward freedom. They provided a safe space where I was heard without judgment and given
+                            the tools to rebuild my life."</p>
+
+                        <p>"Today, I stand tall, my future is my own, and my voice, once silenced, now speaks with
+                            strength and hope."</p>
+                    </div>
+
+                    <div class="story-cta">
+                        <a href="#support" class="btn-survivor">Be a Survivor</a>
+                    </div>
+
+                    <!-- <div class="story-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">🌟</span>
+                            <span>GBV Survivor Support Programme</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📅</span>
+                            <span>2 years of healing and recovery</span>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="banner"><br>
+        <h1>"End <span>GBV.</span> Be <span>Mentally Healthy.</span> Get <span>Safe Circumcision.</span> Live
+            <span>Well".</span>
+        </h1>
+        <a href="contact.html">Contact Us</a>
+    </div>
+
+    <!-- ARTICLES AND BLOGS -->
+    <section class="articles" id="news-blogs">
+        <p class="articles-subtitle">Stay updated with the latest stories, insights, and developments from our community
+        </p>
+
+        <div class="article-container">
+            <!-- Slide 1 -->
+            <div class="article-slide active">
+                <div class="article-image">
+                    <img src="https://www.heartlines.org.za/uploads/imager/uploads/files/Whats-Your-Story/stories/a734cbfc80.webp"
+                        alt="Survivor story">
+                    <div class="article-category">Survivor Story</div>
+                </div>
+                <div class="article-content">
+                    <h2 class="article-heading">I didn't want to be a statistic</h2>
+                    <p class="article-text">
+                        "I've got to make the decision, do I want to be a statistic, or do I want to be there for my
+                        girls?" Tracy and her daughters share their courageous story of leaving a home filled with abuse
+                        and violence.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date"><i class="far fa-calendar"></i> March 15, 2024</span>
+                        <span class="article-read-time"><i class="far fa-clock"></i> 5 min read</span>
+                    </div>
+                    <button class="article-btn">
+                        <a href="#" target="_blank" rel="noopener noreferrer">Read Full Story</a>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="article-slide">
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Mental health workshop">
+                    <div class="article-category">Mental Health</div>
+                </div>
+                <div class="article-content">
+                    <h2 class="article-heading">Breaking the Stigma Around Mental Health</h2>
+                    <p class="article-text">
+                        Our latest community workshop reached over 200 participants, providing tools and resources for
+                        mental wellness. Learn how we're creating safe spaces for open conversations about mental
+                        health.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date"><i class="far fa-calendar"></i> March 10, 2024</span>
+                        <span class="article-read-time"><i class="far fa-clock"></i> 4 min read</span>
+                    </div>
+                    <button class="article-btn">
+                        <a href="#" target="_blank" rel="noopener noreferrer">Read More</a>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="article-slide">
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Livelihood program">
+                    <div class="article-category">Sustainable Livelihoods</div>
+                </div>
+                <div class="article-content">
+                    <h2 class="article-heading">New Entrepreneurship Program Launches</h2>
+                    <p class="article-text">
+                        Our sustainable livelihoods initiative has helped 50 community members start their own small
+                        businesses. Meet the entrepreneurs who are transforming their lives through economic
+                        empowerment.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date"><i class="far fa-calendar"></i> March 5, 2024</span>
+                        <span class="article-read-time"><i class="far fa-clock"></i> 6 min read</span>
+                    </div>
+                    <button class="article-btn">
+                        <a href="#" target="_blank" rel="noopener noreferrer">Read More</a>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="article-slide">
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Community event">
+                    <div class="article-category">Community Update</div>
+                </div>
+                <div class="article-content">
+                    <h2 class="article-heading">Annual Community Day Brings Hope</h2>
+                    <p class="article-text">
+                        Over 500 community members gathered for our annual outreach event, featuring health screenings,
+                        educational workshops, and family activities. See how the day made a difference.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date"><i class="far fa-calendar"></i> February 28, 2024</span>
+                        <span class="article-read-time"><i class="far fa-clock"></i> 3 min read</span>
+                    </div>
+                    <button class="article-btn">
+                        <a href="#" target="_blank" rel="noopener noreferrer">Read More</a>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Arrow Controls -->
+            <button class="prev" aria-label="Previous article">&#10094;</button>
+            <button class="next" aria-label="Next article">&#10095;</button>
+
+            <!-- Dots -->
+            <div class="dots-container">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+            </div>
+        </div>
+    </section><br><br>
+
+    <div class="divider"></div>
+    <!-- GET INVOLVED SECTION -->
+    <section class="get-involved">
+        <div class="get-involved-container">
+            <h1>Your Support Changes Lives.</h1>
+            <p class="involved-subtitle">Every contribution no matter how small goes a long way.</p>
+            <h2 class="join-us">Join us in our mission to build a socially inclusive and resilient community.</h2>
+
+            <div class="get-involved-grid">
+                <div class="available-methods">
+                    <ul class="option_list">
+                        <li class="option_item op_item">
+                            <div class="option_icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <div class="option_text">
+                                <h3 class="option_title">Financial Contribution</h3>
+                                <p class="option_desc">Support our programmes and help us create lasting change. Your
+                                    donations are the lifeblood of our operations.</p>
+                            </div>
+                            <div class="option_arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </li>
+                        <li class="option_item op_itemm">
+                            <div class="option_icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <div class="option_text">
+                                <h3 class="option_title">Volunteer With Us</h3>
+                                <p class="option_desc">Lend your time and skills to make a direct impact in our
+                                    community</p>
+                            </div>
+                            <div class="option_arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </li>
+                        <li class="option_item op-itemmm">
+                            <div class="option_icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="option_text">
+                                <h3 class="option_title">Become a Partner</h3>
+                                <p class="option_desc">Establish a corporate partnership to amplify our collective
+                                    impact</p>
+                            </div>
+                            <div class="option_arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="get-involved-video">
+                    <iframe width="500" height="420" src="https://www.youtube.com/embed/Wyy-XMvZYF4"
+                        title="What is NGO | How NGOs Work: Funding, Operations, and Impact Explained @The UnboxFunding"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site_footer">
+        <div class="footer_container">
+
+            <!-- Main Footer Content -->
+            <div class="footer_main">
+
+                <!-- Organization Info -->
+                <div class="footer_column">
+                    <div class="footer_logo">
+                        <h2 class="logo_text">MMD</h2>
+                        <span class="logo_subtitle">Manyana Mhlali Development</span>
+                    </div>
+                </div>
+
+                <!-- Programmes -->
+                <div class="footer_column">
+                    <h3 class="footer_heading">Our Programmes</h3>
+                    <ul class="footer_links">
+                        <li><a href="programmes/gender_based_violence.html">Gender-Based Violence Prevention</a></li>
+                        <li><a href="programmes/mental_health.html">Mental Health Support</a></li>
+                        <li><a href="programmes/male_circumsition.html">Safe Male Circumcision</a></li>
+                        <li><a href="programmes/sustainable_livelyhoods.html">Sustainable Livelihoods</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal & Governance -->
+                <div class="footer_column">
+                    <h3 class="footer_heading">Legal & Governance</h3>
+                    <ul class="footer_links">
+                        <li><a href="documents/MANYAN MHLALI DEVELOPMENT CONSTITUTION.pdf" target="_blank" download>Our Constitution</a></li>
+                        <li><a href="#governance">Governing Board</a></li>
+                        <li><a href="#financials">Financial Reports</a></li>
+                        <li><a href="#policies">Policies</a></li>
+                        <li><a href="#pbo">PBO Status</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="footer_bottom">
+                <div class="footer_bottom_content">
+                    <div class="copyright">
+                        <p>&copy; 2025 Manyana Mhlali Development NPC. All rights reserved.</p>
+                    </div>
+
+                    <div class="credit">
+                        <p>Website Developed by <a href="https://mlifi.co.za/" target="_blank"
+                                rel="noopener noreferrer">MLIFI SOLUTIONS</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script/main.js"></script>
+</body>
+
+</html>

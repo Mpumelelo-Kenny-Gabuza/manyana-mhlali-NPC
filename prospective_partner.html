@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f35d4106a4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/prospective_partners.css">
+    <link rel="stylesheet" href="style/base_style.css">
+    <title>Become our Partner at Manyana Mhlali Development</title>
+</head>
+<body>
+    <!-- NAVBAR SECTION -->
+    <div class="navbar_section">
+        <div class="navbar_container">
+            <div class="navbar_logo">
+                <div class="navbar_text"><a href="index.html"></a>MMD</div>
+            </div>
+
+            <div class="navbar_socials">
+                <a href="" class="social_icon"><i class=""></i></a>
+                <a href="https://www.facebook.com/people/Manyana-Mhlali-Development/61584026785887/?mibextid=wwXIfr&rdid=rJ1m4Hq12n970lbM&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1HiZtggc9Z%2F%3Fmibextid%3DwwXIfr"
+                    class="social_icon"><i class="fa fa-facebook-square"></i></a>
+                <a href="" class="social_icon"><i class="fa fa-linkedin-square"></i></a>
+                <a href="https://www.instagram.com/manyana_mhlali/?igsh=Y29ub2h5d2phZDJx&utm_source=qr#"
+                    class="social_icon"><i class="fa fa-instagram"></i></a>
+                <a href="tel:+2776 593 5001" class="navbar_contact">076 593 5001</a>
+            </div>
+
+            <!-- HAMBURGER MENU -->
+            <div class="navbar_toggle" id="mobile-menu">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+
+        <div class="navbar_links" id="navbar-links">
+            <ul class="nav_menu">
+                <li><a href="index.html" class="nav_link">Home</a></li>
+                <li><a href="about_us.html" class="nav_link">About Us</a></li>
+                <!-- Programmes Dropdown -->
+                <li class="nav_dropdown">
+                    <a href="" class="nav_link dropdown_toggle">Programmes <span>&#9662;</span></a>
+                    <ul class="dropdown_menu">
+                        <li><a href="programmes/gender_based_violence.html">Gender Based Violence</a></li>
+                        <li><a href="programmes/sustainable_livelyhoods.html">Sustainable Livelihoods</a></li>
+                        <li><a href="programmes/male_circumsition.html">Male Circumsition</a></li>
+                        <li><a href="programmes/mental_health.html">Mental Health</a></li>
+                    </ul>
+                </li>
+                <li><a href="prospective_partner.html" class="nav_link" style="color: #c0392b;">Partnership</a></li>
+                <li><a href="volunteer.html" class="nav_link">Volunteering</a></li>
+            </ul>
+
+            <div class="navbar_buttons">
+                <button class="nav_btn help_btn"><a href="contact.html"> CONTACT</a></button>
+                <button class="nav_btn donate_btn"><a href="donate.html"><i class="fa-solid fa-heart"></i>&nbsp;DONATE</a></button>
+            </div>
+        </div>
+    </div>
+
+    <section class="about-section">
+        <h2 class="about-heading">Partner with Manyana Mhlali Development</h2>
+        <p class="about-paragraph">Through collaborations and partnerships, we can achieve so much more for our brothers
+            and sisters in need</p>
+    </section>
+
+    <div class="partnership_kind" style="text-align: center;padding-top: 2rem;">Partner individually or as an entity</d>
+        <div>Please fill out the form below get started</div>
+
+        <section class="container" id="partner-form">
+        <div class="form-container">
+            <h2>Partnership Inquiry Form</h2>
+            <!-- <p>Interested in partnering with us? Please fill out this form and our partnership team will contact you
+                within 48 hours.</p> -->
+
+            <form action="#" method="POST" class="partnership-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="company-name">Organization/Company Name *</label>
+                        <input type="text" id="company-name" name="company_name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-person">Contact Person *</label>
+                        <input type="text" id="contact-person" name="contact_person" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="company-email">Email Address *</label>
+                        <input type="email" id="company-email" name="company_email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company-phone">Phone Number *</label>
+                        <input type="tel" id="company-phone" name="company_phone" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="company-type">Type of Organization *</label>
+                    <select id="company-type" name="company_type" required>
+                        <option value="">Select organization type</option>
+                        <option value="corporate">Corporate Business</option>
+                        <option value="sme">Small/Medium Enterprise</option>
+                        <option value="ngo">Non-Profit Organization</option>
+                        <option value="government">Government Department</option>
+                        <option value="foundation">Foundation/Trust</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="interest-area">Areas of Interest *</label>
+                    <div class="checkbox-grid">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="gbv-partner" name="interest_area[]" value="gbv">
+                            <label for="gbv-partner">GBV Prevention Programme</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="mental-partner" name="interest_area[]" value="mental">
+                            <label for="mental-partner">Mental Health Awareness</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="circ-partner" name="interest_area[]" value="circumcision">
+                            <label for="circ-partner">Male Circumcision Support</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="live-partner" name="interest_area[]" value="livelihoods">
+                            <label for="live-partner">Sustainable Livelihoods</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="general-partner" name="interest_area[]" value="general">
+                            <label for="general-partner">General Operations</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="partnership-details">Partnership Proposal Details</label>
+                    <textarea id="partnership-details" name="partnership_details" rows="4"
+                        placeholder="Please describe your proposed partnership, including any specific initiatives, employee engagement opportunities, or custom arrangements..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-submit">Submit Partnership Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="current-partners">
+        <div class="container">
+            <h2>Our Current Partners</h2>
+            <div class="partner-logos">
+                <div class="logo-placeholder">[Partner Logo 1]</div>
+                <div class="logo-placeholder">[Partner Logo 2]</div>
+                <div class="logo-placeholder">[Partner Logo 3]</div>
+                <div class="logo-placeholder">[Partner Logo 4]</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site_footer">
+        <div class="footer_container">
+
+            <!-- Main Footer Content -->
+            <div class="footer_main">
+
+                <!-- Organization Info -->
+                <div class="footer_column">
+                    <div class="footer_logo">
+                        <h2 class="logo_text">MMD</h2>
+                        <span class="logo_subtitle">Manyana Mhlali Development</span>
+                    </div>
+                </div>
+
+                <!-- Programmes -->
+                <div class="footer_column">
+                    <h3 class="footer_heading">Our Programmes</h3>
+                    <ul class="footer_links">
+                        <li><a href="">Gender-Based Violence Prevention</a></li>
+                        <li><a href="">Mental Health Support</a></li>
+                        <li><a href="">Safe Male Circumcision</a></li>
+                        <li><a href="">Sustainable Livelihoods</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal & Governance -->
+                <div class="footer_column">
+                    <h3 class="footer_heading">Legal & Governance</h3>
+                    <ul class="footer_links">
+                        <li><a href="#constitution">Our Constitution</a></li>
+                        <li><a href="#governance">Governing Board</a></li>
+                        <li><a href="#financials">Financial Reports</a></li>
+                        <li><a href="#policies">Policies</a></li>
+                        <li><a href="#pbo">PBO Status</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="footer_bottom">
+                <div class="footer_bottom_content">
+                    <div class="copyright">
+                        <p>&copy; 2025 Manyana Mhlali Development NPC. All rights reserved.</p>
+                    </div>
+
+                    <div class="credit">
+                        <p>Website Developed by <a href="https://mlifi.co.za/" target="_blank" rel="noopener noreferrer">MLIFI SOLUTIONS</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script/main.js"></script>
+</body>
+</html>
