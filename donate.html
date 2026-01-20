@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f35d4106a4.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/donate.css">
+    <link rel="stylesheet" href="style/base_style.css">
+    <title>Donate to Manyana Mhlali Development NGO</title>
+</head>
+
+<body>
+    <!-- NAVBAR SECTION -->
+    <div class="navbar_section">
+        <div class="navbar_container">
+            <div class="navbar_logo">
+                <div class="navbar_text"><a href="index.html"></a>MMD</div>
+            </div>
+
+            <div class="navbar_socials">
+                <a href="" class="social_icon"><i class=""></i></a>
+                <a href="https://www.facebook.com/people/Manyana-Mhlali-Development/61584026785887/?mibextid=wwXIfr&rdid=rJ1m4Hq12n970lbM&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1HiZtggc9Z%2F%3Fmibextid%3DwwXIfr"
+                    class="social_icon"><i class="fa fa-facebook-square"></i></a>
+                <a href="" class="social_icon"><i class="fa fa-linkedin-square"></i></a>
+                <a href="https://www.instagram.com/manyana_mhlali/?igsh=Y29ub2h5d2phZDJx&utm_source=qr#"
+                    class="social_icon"><i class="fa fa-instagram"></i></a>
+                <a href="tel:+2776 593 5001" class="navbar_contact">076 593 5001</a>
+            </div>
+
+            <!-- HAMBURGER MENU -->
+            <div class="navbar_toggle" id="mobile-menu">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+
+        <div class="navbar_links" id="navbar-links">
+            <ul class="nav_menu">
+                <li><a href="index.html" class="nav_link">Home</a></li>
+                <li><a href="about_us.html" class="nav_link">About Us</a></li>
+                <!-- Programmes Dropdown -->
+                <li class="nav_dropdown">
+                    <a href="" class="nav_link dropdown_toggle">Programmes <span>&#9662;</span></a>
+                    <ul class="dropdown_menu">
+                        <li><a href="/programmes/gender_based_violence.html">Gender Based Violence</a></li>
+                        <li><a href="programmes/sustainable_livelyhoods.html">Sustainable Livelihoods</a></li>
+                        <li><a href="programmes/male_circumsition.html">Male Circumsition</a></li>
+                        <li><a href="programmes/mental_health.html">Mental Health</a></li>
+                    </ul>
+                </li>
+                <li><a href="prospective_partner.html" class="nav_link">Partnership</a></li>
+                <li><a href="volunteer.html" class="nav_link">Volunteering</a></li>
+            </ul>
+
+            <div class="navbar_buttons">
+                <button class="nav_btn help_btn"><a href="contact.html"> CONTACT</a></button>
+                <button class="nav_btn donate_btn"><a href="donate.html"><i
+                            class="fa-solid fa-heart"></i>&nbsp;DONATE</a></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Your Support Changes Lives</h1>
+            <p class="lead">Every donation, no matter the size, helps us build a stronger, healthier, and more resilient
+                community in Libode and beyond.</p>
+        </div>
+    </section><br>
+
+    <!-- Donation Options -->
+    <section class="donation-options">
+        <div class="container">
+            <h2 class="donate-title">Choose Your Donation Method</h2>
+            <p class="donate-subtitle">Select the option that works best for you. Every contribution makes a difference.
+            </p>
+
+            <div class="options-grid">
+                <!-- EFT Transfer -->
+                <div class="donation-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/First_National_Bank_Logo.svg/1200px-First_National_Bank_Logo.svg.png"
+                        class="platform-logo">
+                    <h3>Direct Bank Transfer</h3>
+                    <h5>Make a direct transfer to our bank account.</h5>
+                    <div class="bank-details">
+                        <ul style="list-style: none;">
+                            <li><strong>Bank:</strong> First National Bank</li>
+                            <li><strong>Account:</strong> Manyana Mhlali Development NPC</li>
+                            <li><strong>Type:</strong> Cheque</li>
+                            <li><strong>Account Number:</strong> 6315 138 3288</li>
+                            <li><strong>Reference:</strong> Your Full Names</li>
+                        </ul>
+                    </div>
+                    <p><small>Email your proof of payment to: mmd@donations.co.za</small></p>
+                </div>
+
+                <!-- GivenGain -->
+                <div class="donation-card">
+                    <img class="platform-logo"
+                        src="data:image/png;base64,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"
+                        alt="GivenGain Logo">
+                    <h3>Global Giving Platform</h3>
+                    <p style="text-align: left;">GivenGain is a dedicated non-profit platform that makes supporting us
+                        simple and secure from anywhere in the world. It’s perfect for setting up monthly contributions
+                        and allows for donations in multiple currencies.</p>
+                    <a href="[Your GivenGain Link]" class="btn-donate view-qr-btn" target="_blank">DONATE VIA GIVENGAIN</a>
+                </div>
+
+                <!-- gofundme -->
+                <div class="donation-card">
+                    <img class="platform-logo"
+                        src="data:image/png;base64,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"
+                        alt="gofundme Logo">
+                    <h3>GoFundMe</h3>
+                    <p style="text-align: left;">A familiar and trusted platform for one-time fundraising campaigns. You
+                        can donate quickly using major international credit cards and payment methods.</p>
+                    <a href="[Your GivenGain Link]" class="btn-donate view-qr-btn" target="_blank">DONATE VIA GOFUNDME</a>
+                </div>
+
+                <!-- SnapScan -->
+                <div class="donation-card">
+                    <img src="https://payfast.io/wp-content/uploads/2021/09/Snapscan-logo@2x.png.webp" alt="SnapScan"
+                        class="platform-logo">
+                    <h3>Quick Mobile Payments</h3>
+                    <p style="text-align: left;">The quickest way to donate from anywhere in South Africa. Simply scan
+                        the QR code below with the SnapScan app for a simple, secure, and contactless payment.</p>
+                    <button class="btn-donate view-qr-btn" onclick="openQRPopup()">VIEW QR CODE</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- View QR Code Button -->
+    <!-- <button class="view-qr-btn" onclick="openQRPopup()">
+        <span class="qr-icon">📱</span>
+        View Donation QR Code
+    </button> -->
+
+    <!-- QR Code Popup -->
+    <div id="qrPopup" class="qr-popup">
+        <div class="qr-popup-content">
+            <button class="close-btn" onclick="closeQRPopup()" aria-label="Close QR code popup">
+                ✕
+            </button>
+
+            <div class="qr-title">
+                <h2>Donate via QR Code</h2>
+                <p class="qr-subtitle">Scan with your banking app</p>
+            </div>
+
+            <!-- Static QR Code Image -->
+            <div class="qr-image-container">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=Bank%3AFirst%20National%20Bank%0AAccount%3A63151383288%0ABranch%3A210521%0AName%3AManyana%20Mhlali%20Development%20NPC%0ARef%3ADONATION&format=png&color=1e4a7b&bgcolor=ffffff&margin=10&qzone=1"
+                    alt="Scan to donate to Manyana Mhlali Development - FNB Account" class="qr-code-image"
+                    onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgZmlsbD0iIzFlNGE3YiIvPjx0ZXh0IHg9IjUwJSIgeT0iNDUlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIwLjM1ZW0iPkZORCBRUjwvdGV4dD48dGV4dCB4PSI1MCUiIHk9IjU1JSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iMC4zNWVtIj5ET05BVEU8L3RleHQ+PC9zdmc+='">
+            </div>
+
+            <div class="qr-note">
+                <p>QR code valid for Bank EFT payments</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final CTA -->
+    <section class="impact-section" id="bottom-impact">
+        <div class="container" style="text-align: center;">
+            <h2>Ready to Make a Difference?</h2>
+            <p>Your generosity fuels our mission to create a socially cohesive community free from violence, filled with
+                opportunity, and built on mutual respect.</p><br>
+            <p><strong>Choose your donation method above and become part of our village today.</strong></p>
+
+            <div style="margin-top: 30px;">
+                <p><small>Manyana Mhlali Development is a registered Non-Profit Company (NPC).<br>
+                        Need help with your donation? Contact us at <a href="tel:+27722429233">072 242 9233</a> or
+                        <a href="mailto:mmd@donations.co.za">mmd@donations.co.za</a></small></p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site_footer">
+        <div class="footer_container">
+
+            <!-- Main Footer Content -->
+            <div class="footer_main">
+
+                <!-- Organization Info -->
+                <div class="footer_column">
+                    <div class="footer_logo">
+                        <h2 class="logo_text">MMD</h2>
+                        <span class="logo_subtitle">Manyana Mhlali Development</span>
+                    </div>
+                </div>
+
+                <!-- Programmes -->
+                <div class="footer_column">
+                    <h3 class="footer_heading">Our Programmes</h3>
+                    <ul class="footer_links">
+                        <li><a href="programmes/gender_based_violence.html">Gender-Based Violence Prevention</a></li>
+                        <li><a href="programmes/mental_health.html">Mental Health Support</a></li>
+                        <li><a href="programmes/male_circumsition.html">Safe Male Circumcision</a></li>
+                        <li><a href="programmes/sustainable_livelyhoods.html">Sustainable Livelihoods</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal & Governance -->
+                <div class="footer_column">
+                    <h3 class="footer_heading">Legal & Governance</h3>
+                    <ul class="footer_links">
+                        <li><a href="#constitution">Our Constitution</a></li>
+                        <li><a href="#governance">Governing Board</a></li>
+                        <li><a href="#financials">Financial Reports</a></li>
+                        <li><a href="#policies">Policies</a></li>
+                        <li><a href="#pbo">PBO Status</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="footer_bottom">
+                <div class="footer_bottom_content">
+                    <div class="copyright">
+                        <p>&copy; 2025 Manyana Mhlali Development NPC. All rights reserved.</p>
+                    </div>
+
+                    <div class="credit">
+                        <p>Website Developed by <a href="https://mlifi.co.za/" target="_blank"
+                                rel="noopener noreferrer">MLIFI SOLUTIONS</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script/qrcode.js"></script>
+    <script src="script/main.js"></script>
+</body>
+
+</html>

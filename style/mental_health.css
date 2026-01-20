@@ -1,0 +1,391 @@
+/* Hero Section */
+.programme-hero {
+    padding: 5rem 0;
+    color: white;
+    text-align: center;
+}
+
+.mental-health-hero {
+    background: linear-gradient(135deg, var(--secondary-teal) 0%, #4a8b9e 100%);
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-btn {
+    display: inline-block;
+    background: white;
+    color: var(--secondary-teal);
+    padding: 1rem 2.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Overview Section */
+.programme-overview {
+    padding: 4rem 0;
+    background: white;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.overview-content h2 {
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.overview-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+}
+
+.impact-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--primary-cream);
+    border-radius: 8px;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary-teal);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+.overview-image {
+    display: flex;
+    justify-content: center;
+}
+
+.mental-health-image {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, var(--secondary-teal) 0%, var(--primary-cream) 100%);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.image-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.mental-health-image p {
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* Components Section */
+.programme-components {
+    padding: 4rem 0;
+    background: var(--primary-cream);
+}
+
+.section-title {
+    color: var(--primary-blue);
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--secondary-gray);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.components-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.component-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid var(--secondary-teal);
+    transition: transform 0.3s ease;
+}
+
+.component-card:hover {
+    transform: translateY(-5px);
+}
+
+.component-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-teal);
+}
+
+.component-card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.component-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.component-card li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.95rem;
+}
+
+.component-card li:last-child {
+    border-bottom: none;
+}
+
+/* Target Groups */
+.target-groups {
+    padding: 4rem 0;
+    background: white;
+}
+
+.groups-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.group-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-light);
+}
+
+.group-header {
+    background: var(--secondary-teal);
+    color: white;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.group-icon {
+    font-size: 2rem;
+}
+
+.group-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.group-content {
+    padding: 1.5rem;
+}
+
+.group-content p {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.group-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.group-content li {
+    padding: 0.3rem 0;
+    font-size: 0.9rem;
+    color: var(--secondary-gray);
+}
+
+.group-content li:before {
+    content: "✓ ";
+    color: var(--secondary-teal);
+    font-weight: bold;
+}
+
+
+/* Resources Section */
+.resources-section {
+    padding: 4rem 0;
+    background: var(--primary-cream);
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.resource-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.resource-icon {
+    font-size: 2rem;
+    color: var(--secondary-teal);
+    flex-shrink: 0;
+}
+
+.resource-content h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.resource-content p {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+.download-link {
+    display: inline-block;
+    color: var(--secondary-teal);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+
+.download-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .overview-image {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .impact-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .story-card {
+        padding: 2rem;
+    }
+
+    .involvement-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .programme-hero {
+        padding: 3rem 0;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .mental-health-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    .resource-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}
