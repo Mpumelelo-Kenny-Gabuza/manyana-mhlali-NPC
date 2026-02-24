@@ -1,21 +1,101 @@
+// const mobileMenu = document.getElementById('mobile-menu');
+// const navbarLinks = document.getElementById('navbar-links');
+
+// mobileMenu.addEventListener('click', function () {
+//     navbarLinks.classList.toggle('active');
+//     mobileMenu.classList.toggle('open');
+// });
+
+// const dropdowns = document.querySelectorAll('.dropdown_toggle');
+
+// dropdowns.forEach(function (drop) {
+//     drop.addEventListener('click', function (e) {
+//         e.preventDefault();
+//         const parent = drop.parentElement;
+//         parent.classList.toggle('active');
+//     });
+// });
+
 // Mobile menu toggle
-const mobileMenu = document.getElementById('mobile-menu');
-const navbarLinks = document.getElementById('navbar-links');
+document.addEventListener('DOMContentLoaded', function () {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navbarLinks = document.getElementById('navbar-links');
+    const dropdownToggle = document.querySelector('.dropdown_toggle');
+    const programmesDropdown = document.getElementById('programmes-dropdown');
 
-mobileMenu.addEventListener('click', function () {
-    navbarLinks.classList.toggle('active');
-    mobileMenu.classList.toggle('open');
-});
+    // Toggle mobile menu
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', function (e) {
+            e.stopPropagation();
+            navbarLinks.classList.toggle('active');
 
-// Dropdown toggles
-const dropdowns = document.querySelectorAll('.dropdown_toggle');
+            // Close dropdown when closing mobile menu
+            if (!navbarLinks.classList.contains('active') && programmesDropdown) {
+                programmesDropdown.classList.remove('active');
+                dropdownToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
 
-dropdowns.forEach(function (drop) {
-    drop.addEventListener('click', function (e) {
-        e.preventDefault();
-        const parent = drop.parentElement;
-        parent.classList.toggle('active');
+    // Handle dropdown toggle for mobile
+    if (dropdownToggle && programmesDropdown) {
+        dropdownToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Only handle dropdown on mobile
+            if (window.innerWidth <= 768) {
+                programmesDropdown.classList.toggle('active');
+                const isExpanded = programmesDropdown.classList.contains('active');
+                dropdownToggle.setAttribute('aria-expanded', isExpanded);
+            } else {
+                // On desktop, follow the link or handle differently
+                window.location.href = '#'; // or your programmes page
+            }
+        });
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.navbar_section') && navbarLinks.classList.contains('active')) {
+            navbarLinks.classList.remove('active');
+            if (programmesDropdown) {
+                programmesDropdown.classList.remove('active');
+                dropdownToggle.setAttribute('aria-expanded', 'false');
+            }
+        }
     });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && navbarLinks.classList.contains('active')) {
+            navbarLinks.classList.remove('active');
+            if (programmesDropdown) {
+                programmesDropdown.classList.remove('active');
+                dropdownToggle.setAttribute('aria-expanded', 'false');
+            }
+        }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 768) {
+            navbarLinks.classList.remove('active');
+            if (programmesDropdown) {
+                programmesDropdown.classList.remove('active');
+                dropdownToggle.setAttribute('aria-expanded', 'false');
+            }
+        }
+    });
+
+    // Prevent dropdown from closing when clicking inside it on mobile
+    if (programmesDropdown) {
+        programmesDropdown.addEventListener('click', function (e) {
+            if (window.innerWidth <= 768) {
+                e.stopPropagation();
+            }
+        });
+    }
 });
 
 
@@ -70,37 +150,182 @@ document.addEventListener('keydown', (event) => {
 
 
 
-// Add interactivity to programme cards
-document.querySelectorAll('.gbv_programme').forEach(card => {
-    card.addEventListener('click', function () {
-        const programmeName = this.querySelector('.program_name').textContent;
-        alert(`You selected: ${programmeName}. You will be redirected to learn more about this programme.`);
-        window.location.href = 'programmes/Gender_Based_Violence.html';
+// Add interactivity to programme cards with improved UX
+document.addEventListener('DOMContentLoaded', function () {
+    // Get all programme cards
+    const programCards = document.querySelectorAll('.program_card');
+
+    // Add click event to each card
+    programCards.forEach(card => {
+        card.addEventListener('click', function (e) {
+            // Prevent multiple rapid clicks
+            if (this.classList.contains('processing')) {
+                return;
+            }
+
+            this.classList.add('processing');
+
+            // Get programme information
+            const programName = this.querySelector('.program_name').textContent;
+            const programUrl = this.dataset.url;
+
+            // Show visual feedback
+            this.style.transform = 'scale(0.98)';
+
+            // Optional: Show a brief notification
+            showNotification(`Loading ${programName}...`);
+
+            // Redirect after a brief delay for visual feedback
+            setTimeout(() => {
+                window.location.href = programUrl;
+            }, 300);
+        });
+
+        // Add keyboard accessibility
+        card.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+
+        // Make cards focusable for keyboard navigation
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', `Learn more about ${card.querySelector('.program_name').textContent}`);
     });
+
+    // Optional: Add touch feedback for mobile
+    programCards.forEach(card => {
+        card.addEventListener('touchstart', function () {
+            this.style.transform = 'scale(0.98)';
+        }, { passive: true });
+
+        card.addEventListener('touchend', function () {
+            this.style.transform = 'scale(1)';
+        });
+
+        card.addEventListener('touchcancel', function () {
+            this.style.transform = 'scale(1)';
+        });
+    });
+
+    // Helper function to show notification
+    function showNotification(message) {
+        // Check if notification container exists, if not create it
+        let notification = document.querySelector('.programme-notification');
+
+        if (!notification) {
+            notification = document.createElement('div');
+            notification.className = 'programme-notification';
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #e74c3c;
+                color: white;
+                padding: 12px 24px;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                z-index: 9999;
+                font-weight: 500;
+                animation: slideIn 0.3s ease;
+                opacity: 0;
+                transform: translateX(100%);
+            `;
+            document.body.appendChild(notification);
+
+            // Add animation keyframes
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    to {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Show notification
+        notification.textContent = message;
+        notification.style.opacity = '1';
+        notification.style.transform = 'translateX(0)';
+
+        // Hide after 2 seconds
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateX(100%)';
+        }, 2000);
+    }
 });
 
-document.querySelectorAll('.mental_health_programme').forEach(card => {
-    card.addEventListener('click', function () {
-        const programmeName = this.querySelector('.program_name').textContent;
-        alert(`You selected: ${programmeName}. You will be redirected to learn more about this programme.`);
-        window.location.href = 'programmes/Mental_Health.html';
-    });
-});
+// Survivor 
+StylePropertyMap// Add interactive elements
+document.addEventListener('DOMContentLoaded', function () {
+    // Animate stats on scroll
+    const statsSection = document.querySelector('.story-stats');
+    const statNumbers = document.querySelectorAll('.stat-number');
 
-document.querySelectorAll('.circumcision_programme').forEach(card => {
-    card.addEventListener('click', function () {
-        const programmeName = this.querySelector('.program_name').textContent;
-        alert(`You selected: ${programmeName}. You will be redirected to learn more about this programme.`);
-        window.location.href = 'programmes/Male_Circumsition.html';
-    });
-});
+    if (statsSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
 
-document.querySelectorAll('.livelihoods_programme').forEach(card => {
-    card.addEventListener('click', function () {
-        const programmeName = this.querySelector('.program_name').textContent;
-        alert(`You selected: ${programmeName}. You will be redirected to learn more about this programme.`);
-        window.location.href = 'programmes/Sustainable_Livelyhoods.html';
-    });
+                    // Animate numbers
+                    statNumbers.forEach(stat => {
+                        const value = stat.textContent;
+                        if (value.includes('+')) {
+                            animateNumber(stat, parseInt(value), '+');
+                        } else if (value.includes('%')) {
+                            animateNumber(stat, parseInt(value), '%');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(statsSection);
+    }
+
+    // Number animation function
+    function animateNumber(element, target, suffix = '') {
+        if (element.classList.contains('animated')) return;
+
+        let current = 0;
+        const increment = target / 50;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                element.textContent = target + suffix;
+                clearInterval(timer);
+                element.classList.add('animated');
+            } else {
+                element.textContent = Math.floor(current) + suffix;
+            }
+        }, 30);
+    }
+
+    // Add hover effect to image
+    const imageWrapper = document.querySelector('.image-wrapper');
+    if (imageWrapper) {
+        imageWrapper.addEventListener('mousemove', function (e) {
+            const { left, top, width, height } = this.getBoundingClientRect();
+            const x = (e.clientX - left) / width - 0.5;
+            const y = (e.clientY - top) / height - 0.5;
+
+            const img = this.querySelector('.story-img');
+            img.style.transform = `scale(1.05) translate(${x * 10}px, ${y * 10}px)`;
+        });
+
+        imageWrapper.addEventListener('mouseleave', function () {
+            const img = this.querySelector('.story-img');
+            img.style.transform = 'scale(1) translate(0, 0)';
+        });
+    }
 });
 
 
