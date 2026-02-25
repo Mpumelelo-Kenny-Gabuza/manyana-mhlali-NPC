@@ -1,75 +1,326 @@
+/* ABOUT US SECTION */
 .about-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/AboutUs.jpg');
+    position: relative;
+    min-height: 80vh;
+    /* background: linear-gradient(135deg, #5f7d9f, #516b85); */
+    background-image: url('../assets/AboutUs.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 3rem 3rem;
-    text-align: center;
-    transition: transform 0.3s ease;
+    background-attachment: fixed;
     color: #fff;
+    overflow: hidden;
 }
 
-.about-heading {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    opacity: 0.9;
+/* Dark Overlay */
+.about-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            rgba(44, 62, 80, 0.95) 0%,
+            rgba(52, 73, 94, 0.9) 50%,
+            rgba(44, 62, 80, 0.95) 100%);
+    backdrop-filter: blur(1px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+}
+
+.about-container {
+    padding-top: 3rem;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.badge-line {
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #e74c3c, transparent);
+}
+
+.badge-text {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    font-weight: 600;
     letter-spacing: 3px;
     text-transform: uppercase;
+}
+
+/* Main Heading */
+.about-heading {
     text-align: center;
-    color: transparent;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #fff;
-    font-weight: bold;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+/* Description */
+.about-description {
+    max-width: 1000px;
+    margin: 0 auto 3rem;
+    position: relative;
 }
 
 .about-paragraph {
     font-size: 1.2rem;
-    line-height: 2rem;
-    letter-spacing: 1px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    font-weight: 300;
 }
 
-.inline-download {
-    margin: 2.3rem 0;
+/* Download Grid */
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto 3rem;
 }
 
-.download-link {
-    display: inline-flex;
+.download-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1rem;
+    display: flex;
     align-items: center;
-    gap: 0.8rem;
-    background: lightgray;
-    color: #222121;
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
+    gap: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
-    border: 2px solid var(--primary-blue);
+    position: relative;
+    overflow: hidden;
 }
 
-.download-link:hover {
-    transform: translateY(-2px);
+.download-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: #e74c3c;
 }
 
-.link-icon {
-    font-size: 1.2rem;
+.download-card:hover::before {
+    transform: scaleY(1);
 }
 
-.link-text {
+
+
+.card-content {
     flex: 1;
 }
 
-.link-size {
-    background: rgba(99, 97, 97, 0.2);
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
+.card-title {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.3rem;
+    color: white;
+}
+
+.card-desc {
     font-size: 0.85rem;
-    font-weight: normal;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.file-size {
+    background: rgba(231, 76, 60, 0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    color: #ddd;
+    font-size: small;
+    font-weight: 300;
+}
+
+.download-btn {
+    background: rgba(231, 76, 60, 0.2);
+    border: 1px solid #e74c3c;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: small;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.download-btn i {
+    font-size: small;
+    transition: transform 0.3s ease;
+}
+
+.download-btn:hover {
+    background: #e74c3c;
+    transform: scale(1.05);
+}
+
+.download-btn:hover i {
+    transform: translateY(3px);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .about-heading {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-overlay {
+        padding: 3rem 1.5rem;
+    }
+
+    .about-heading {
+        font-size: 2.8rem;
+        letter-spacing: 2px;
+    }
+
+    .about-paragraph {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    .download-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 500px;
+    }
+
+    .download-card {
+        padding: 1.2rem;
+    }
+
+    .badge-divider {
+        width: 50px;
+        height: 1px;
+    }
+
+    .value-pill {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
 }
 
 @media (max-width: 480px) {
-    .download-link {
+    .about-heading {
+        font-size: 2.2rem;
+    }
+
+    .heading-word {
+        -webkit-text-stroke-width: 1px;
+        margin: 0 0.1rem;
+    }
+
+    .about-paragraph {
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .dropcap {
+        font-size: 3rem;
+    }
+
+    .download-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .card-icon {
+        margin-bottom: 0.5rem;
+    }
+
+    .card-meta {
+        justify-content: center;
+    }
+
+    .download-btn {
         width: 100%;
-        justify-content: space-between;
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .badge-item {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Animation for scroll */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-container>* {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.about-container>*:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.about-container>*:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.about-container>*:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.about-container>*:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.about-container>*:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.about-container>*:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .about-overlay {
+        background: linear-gradient(135deg,
+                rgba(20, 30, 40, 0.98) 0%,
+                rgba(30, 40, 50, 0.95) 100%);
+    }
+}
+
+/* Hover effect for heading */
+@media (min-width: 769px) {
+    .about-heading:hover .heading-word {
+        -webkit-text-stroke-color: #e74c3c;
     }
 }
 
@@ -144,6 +395,7 @@
     margin: 0 auto;
     padding: 0 2rem;
 }
+
 .socials-card {
     background: rgb(247, 246, 246);
     border-radius: 12px;
@@ -157,6 +409,7 @@
     margin-bottom: 1.5rem;
     font-size: 1rem;
 }
+
 /* Social Media Card  */
 .socials-card p {
     color: var(--secondary-gray);
