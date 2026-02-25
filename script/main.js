@@ -1,21 +1,3 @@
-// const mobileMenu = document.getElementById('mobile-menu');
-// const navbarLinks = document.getElementById('navbar-links');
-
-// mobileMenu.addEventListener('click', function () {
-//     navbarLinks.classList.toggle('active');
-//     mobileMenu.classList.toggle('open');
-// });
-
-// const dropdowns = document.querySelectorAll('.dropdown_toggle');
-
-// dropdowns.forEach(function (drop) {
-//     drop.addEventListener('click', function (e) {
-//         e.preventDefault();
-//         const parent = drop.parentElement;
-//         parent.classList.toggle('active');
-//     });
-// });
-
 // Mobile menu toggle
 document.addEventListener('DOMContentLoaded', function () {
     const mobileMenu = document.getElementById('mobile-menu');
@@ -403,32 +385,177 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// Add interactivity to option items
-document.querySelectorAll('.op-itemmm').forEach(item => {
-    item.addEventListener('click', function () {
-        const title = this.querySelector('.option_title').textContent;
-        alert(`Thank you for your interest in "${title}"! You will be redirected to more information.`);
-        // In a real implementation, this would redirect to the appropriate page
-        window.location.href = 'prospective_partner.html';
-    });
-});
+document.addEventListener('DOMContentLoaded', function () {
+    // Handle option item clicks with improved UX
+    const optionItems = document.querySelectorAll('.option_item');
 
-document.querySelectorAll('.op_itemm').forEach(item => {
-    item.addEventListener('click', function () {
-        const title = this.querySelector('.option_title').textContent;
-        alert(`Thank you for your interest in "${title}"! You will be redirected to more information.`);
-        // In a real implementation, this would redirect to the appropriate page
-        window.location.href = 'volunteer.html';
-    });
-});
+    optionItems.forEach(item => {
+        item.addEventListener('click', function (e) {
+            e.preventDefault();
 
-document.querySelectorAll('.op_item').forEach(item => {
-    item.addEventListener('click', function () {
-        const title = this.querySelector('.option_title').textContent;
-        alert(`Thank you for your interest in "${title}"! You will be redirected to more information.`);
-        // In a real implementation, this would redirect to the appropriate page
-        window.location.href = 'donate.html';
+            // Prevent double clicks
+            if (this.classList.contains('processing')) {
+                return;
+            }
+
+            this.classList.add('processing');
+
+            const title = this.querySelector('.option_title').textContent;
+            const url = this.dataset.url;
+            const type = this.dataset.type;
+
+            // Show loading state
+            this.style.opacity = '0.7';
+            this.style.pointerEvents = 'none';
+
+            // Show notification
+            showNotification(`Redirecting to ${title}...`, type);
+
+            // Redirect after brief delay
+            setTimeout(() => {
+                window.location.href = url;
+            }, 800);
+        });
+
+        // Add keyboard accessibility
+        item.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+
+        // Make focusable
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('role', 'button');
+        item.setAttribute('aria-label', `Learn more about ${item.querySelector('.option_title').textContent}`);
     });
+
+    // Animate statistics
+    const stats = document.querySelectorAll('.stat-number');
+
+    const animateStats = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const targetNumber = parseInt(target.dataset.target);
+                const duration = 2000;
+                const step = targetNumber / (duration / 16);
+                let current = 0;
+
+                const updateNumber = () => {
+                    current += step;
+                    if (current >= targetNumber) {
+                        target.textContent = targetNumber + '+';
+                    } else {
+                        target.textContent = Math.floor(current) + '+';
+                        requestAnimationFrame(updateNumber);
+                    }
+                };
+
+                updateNumber();
+                observer.unobserve(target);
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(animateStats, { threshold: 0.5 });
+    stats.forEach(stat => observer.observe(stat));
+
+    // Video play button interaction
+    const videoContainer = document.querySelector('.video-container');
+    const playButton = document.querySelector('.play-button');
+    const iframe = document.querySelector('iframe');
+
+    if (playButton && iframe) {
+        playButton.addEventListener('click', function () {
+            // Add autoplay to iframe src
+            const src = iframe.src;
+            if (!src.includes('autoplay=1')) {
+                iframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
+            }
+            this.style.opacity = '0';
+        });
+    }
+
+    // Helper function for notifications
+    function showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.innerHTML = `
+            <div class="notification-content">
+                <span class="notification-icon">${getIcon(type)}</span>
+                <span class="notification-message">${message}</span>
+            </div>
+        `;
+
+        // Style the notification
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: ${getColor(type)};
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            font-weight: 500;
+        `;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 2000);
+    }
+
+    function getIcon(type) {
+        switch (type) {
+            case 'donate': return '💰';
+            case 'volunteer': return '🤝';
+            case 'partner': return '🤲';
+            default: return '❤️';
+        }
+    }
+
+    function getColor(type) {
+        switch (type) {
+            case 'donate': return '#e74c3c';
+            case 'volunteer': return '#3498db';
+            case 'partner': return '#27ae60';
+            default: return '#2c3e50';
+        }
+    }
+
+    // Add animation styles
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
 });
 
 
@@ -461,6 +588,109 @@ function togglePopup() {
     popup.classList.toggle("show");
 }
 
+// Add download tracking and animations
+document.addEventListener('DOMContentLoaded', function () {
+    const downloadBtns = document.querySelectorAll('.download-btn');
+    const valuePills = document.querySelectorAll('.value-pill');
 
+    // Track downloads
+    downloadBtns.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            const card = this.closest('.download-card');
+            const title = card.querySelector('.card-title').textContent;
+
+            // Show download notification
+            showNotification(`Downloading ${title}...`, 'download');
+
+            // You could add Google Analytics tracking here
+            console.log(`Download started: ${title}`);
+        });
+    });
+
+    // Add ripple effect to value pills
+    valuePills.forEach(pill => {
+        pill.addEventListener('click', function (e) {
+            // Just for visual effect, no action needed
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 200);
+        });
+    });
+
+    // Intersection Observer for fade-in animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.about-container > *').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Notification helper
+    function showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = 'download-notification';
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="fas fa-check-circle"></i>
+                <span>${message}</span>
+            </div>
+        `;
+
+        notification.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #e74c3c;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 9999;
+            animation: slideUp 0.3s ease;
+            font-weight: 500;
+        `;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.style.animation = 'slideDown 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+
+    // Add animation styles
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+});
 
 
